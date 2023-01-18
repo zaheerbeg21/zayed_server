@@ -1,0 +1,84 @@
+<!--<form method='post' enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{form.as_p}}-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">
+                    URL Validation
+                </h4>
+            </div>
+            <div class="card-body">
+                <h6 class="card-category">
+                    {% if msg and color == 'red' %}
+                    <span class="text-danger">{{ msg | safe }}</span>
+                    {% elif msg and color == 'green'%}
+                    <span class="text-success">{{ msg | safe }}</span><br>
+                    <span class="text-success">{{ msg1 | safe }}</span>
+                    {% else %}
+                    Enter your url
+                    {% endif %}
+                </h6>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Enter URL</label>
+                                <input type="text" class='form-control' id="url" name="url"
+                                       placeholder="url" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary pull-left">Submit URL</button>
+                    &nbsp; &nbsp
+
+                </form>
+                <br>
+                <h1> OR </h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Upload</button>
+                </form>
+
+                <p><a href="{% url 'home' %}">Return to home</a></p>
+
+                {% if tag_lst|length > 0 %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <label class="bmd-label-floating">Select Tag</label>
+                                <select id="tag_lst" name="tag_lst" class="form-select" style="width: 350px"
+                                        size="{{tag_lst|length}}" multiple required>
+                                    {% if tag_lst|length < 1 %}
+                                    <option>No tags available</option>
+                                    {% else %}
+                                    {% for tag in tag_lst %}
+                                    <option value="{{tag}}">{{tag}}</option>
+                                    {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-left">Submit Tag</button>
+                        </div>
+                    </div>
+
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

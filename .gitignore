@@ -1,0 +1,5 @@
+report_app/__pycache__/
+zayed_university_app/__pycache__/
+zayed_university_app/migrations/__pycache__/
+db.sqlite3
+report/

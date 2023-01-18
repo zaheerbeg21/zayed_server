@@ -1,0 +1,9 @@
+https://www.zu.ac.ae/main/en/all_pages_json.json
+
+https://www.zu.ac.ae/main/ar/all_pages_ar.xml
+
+https://www.zu.ac.ae/main/en/all_pages.xml
+
+https://www.zu.ac.ae/main/en/all_news.xml
+
+https://www.zu.ac.ae/main/en/all_news.xml
